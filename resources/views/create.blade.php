@@ -8,13 +8,13 @@
     <body>
         <h1>ブログ新規作成</h1>
         <form action="" method="">
+            {{ csrf_field() }}
             タイトル:<br>
             <input name="title">
             <br>
             本文:<br>
-            <textarea name="text" rows="4" cols="40"></textarea>
+            <textarea name="body" rows="4" cols="40"></textarea>
             <br>
-            {{ csrf_field() }}
             <button class="btn btn-success"> 送信 </button>
         </form>
     </body>

@@ -17,4 +17,4 @@ use App\Http\Controllers\BlogController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/blog', [BlogController::class, 'create'])->name('blogcreate');
+Route::get('/blog', [BlogController::class, 'create'])->name('blog.create');
