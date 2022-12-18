@@ -27,6 +27,5 @@ class Blog extends Model
      * @var array<int, string>
      */
     protected $guarded = [
-        'id',
     ];
 }
