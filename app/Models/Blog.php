@@ -9,8 +9,6 @@ class Blog extends Model
 {
     use HasFactory;
 
-    use HasFactory;
-
      /**
      * The attributes that are mass assignable.
      *
