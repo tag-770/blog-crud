@@ -18,12 +18,4 @@ class Blog extends Model
         'title',
         'body',
     ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $guarded = [
-    ];
 }
