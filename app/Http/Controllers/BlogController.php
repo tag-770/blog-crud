@@ -26,4 +26,10 @@ class BlogController extends Controller
 
         return redirect()->route('blog.create');
     }
+
+    public function index()
+    {
+        $blogs = Blog::all();
+        return view("index")->with('blogs',$blogs);
+    }
 }
