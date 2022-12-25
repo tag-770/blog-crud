@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1>ブログ新規作成</h1>
-        <form action="" method="">
+        <form action="{{ route('blog.create') }}" method="post">
             {{ csrf_field() }}
             タイトル:<br>
             <input name="title">
