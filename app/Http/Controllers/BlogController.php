@@ -27,6 +27,9 @@ class BlogController extends Controller
         return redirect()->route('blog.create');
     }
 
+    /**
+     * ブログの一覧を表示する
+     */
     public function index()
     {
         $blogs = Blog::all();
