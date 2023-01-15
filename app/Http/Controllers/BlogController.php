@@ -7,6 +7,9 @@ use App\Models\Blog;
 
 class BlogController extends Controller
 {
+    /**
+     * ブログの新規作成画面を表示する
+     */
     public function create()
     {
         return view("create");
