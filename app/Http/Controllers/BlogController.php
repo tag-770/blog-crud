@@ -32,4 +32,10 @@ class BlogController extends Controller
         $blogs = Blog::all();
         return view("index")->with('blogs',$blogs);
     }
+
+    public function show($id)
+    {
+        $blog = Blog::find($id);
+        return view("show")->with('blog', $blog);
+    }
 }
