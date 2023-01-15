@@ -50,4 +50,11 @@ class BlogController extends Controller
         $blog = Blog::find($id);
         return view("show")->with('blog', $blog);
     }
+
+    public function destroy($id)
+    {
+        $blog = Blog::find($id);
+        $blog->delete();
+        return redirect()->route('blog.create');
+    }
 }
