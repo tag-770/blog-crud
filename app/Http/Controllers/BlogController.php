@@ -51,6 +51,9 @@ class BlogController extends Controller
         return view("show")->with('blog', $blog);
     }
 
+    /**
+     * ブログを削除する処理
+     */
     public function destroy($id)
     {
         $blog = Blog::find($id);
