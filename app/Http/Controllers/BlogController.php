@@ -14,7 +14,10 @@ class BlogController extends Controller
     {
         return view("create");
     }
-
+    
+    /**
+     * ブログを作成する
+     */
     public function store(Request $request)
     {
         $request->validate([
