@@ -10,5 +10,8 @@
         <div>
             <p>{{$blog->title}} - {{$blog->body}} - {{$blog->created_at}}</p>
         </div>
+        <div>
+            <button>削除する</button>
+        </div>
     </body>
 </html>        
