@@ -36,6 +36,9 @@ class BlogController extends Controller
         return view("index")->with('blogs',$blogs);
     }
 
+    /**
+     * ブログの詳細画面を表示する
+     */
     public function show($id)
     {
         $blog = Blog::find($id);
