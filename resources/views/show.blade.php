@@ -10,5 +10,10 @@
         <div>
             <p>{{$blog->title}} - {{$blog->body}} - {{$blog->created_at}}</p>
         </div>
+        <form action="{{ route('blog.destroy', ['id'=>$blog->id]) }}" method="POST">
+          @csrf
+          <button type="submit" class="btn btn-danger">削除する</button>
+        </form>
+        </div>
     </body>
 </html>        
