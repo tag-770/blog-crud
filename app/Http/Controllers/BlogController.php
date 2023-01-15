@@ -7,11 +7,17 @@ use App\Models\Blog;
 
 class BlogController extends Controller
 {
+    /**
+     * ブログの新規作成画面を表示する
+     */
     public function create()
     {
         return view("create");
     }
-
+    
+    /**
+     * ブログを作成する
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -27,12 +33,18 @@ class BlogController extends Controller
         return redirect()->route('blog.create');
     }
 
+    /**
+     * ブログの一覧を表示する
+     */
     public function index()
     {
         $blogs = Blog::all();
         return view("index")->with('blogs',$blogs);
     }
 
+    /**
+     * ブログの詳細画面を表示する
+     */
     public function show($id)
     {
         $blog = Blog::find($id);
