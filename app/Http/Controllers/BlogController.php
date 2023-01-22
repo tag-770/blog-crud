@@ -60,4 +60,13 @@ class BlogController extends Controller
         $blog->delete();
         return redirect()->route('blog.create');
     }
+
+    /**
+     * ブログの編集画面を表示する
+     */
+    public function edit($id)
+    {
+        $blog = Blog::find($id);
+        return view("edit")->with('blog', $blog);
+    }
 }
