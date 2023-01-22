@@ -64,8 +64,9 @@ class BlogController extends Controller
     /**
      * ブログの編集画面を表示する
      */
-    public function edit()
+    public function edit($id)
     {
-        return view("edit");
+        $blog = Blog::find($id);
+        return view("edit")->with('blog', $blog);
     }
 }
