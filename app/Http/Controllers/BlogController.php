@@ -60,4 +60,12 @@ class BlogController extends Controller
         $blog->delete();
         return redirect()->route('blog.create');
     }
+
+    /**
+     * ブログの編集画面を表示する
+     */
+    public function edit()
+    {
+        return view("edit");
+    }
 }
