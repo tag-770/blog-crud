@@ -70,8 +70,20 @@ class BlogController extends Controller
         return view("edit")->with('blog', $blog);
     }
 
-    public function update()
+    /**
+     * ブログの更新をする
+     */
+    public function update(Request $request, $id)
     {
-        return view("create");
+        $request->validate([
+            'title' => ['required'],
+            'body' => ['required', 'min:10'],
+        ]);
+
+        Blog::find($id)->update([
+            'title' => $request->title,
+            'body' => $request->body
+        ]);
+        return redirect()->route('top');
     }
 }

@@ -16,10 +16,11 @@ use App\Http\Controllers\BlogController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('top');
 Route::get('/blog', [BlogController::class, 'create'])->name('blog.create');
 Route::post('/blog', [BlogController::class, 'store']);
 Route::get('/blogs', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blogs/{id}', [BlogController::class, 'show'])->name('blog.show');
 Route::post('/blogs/{id}/delete', [BlogController::class, 'destroy'])->name('blog.destroy');
 Route::get('/blogs/{id}/edit', [BlogController::class, 'edit'])->name('blog.edit');
+Route::post('/blogs/{id}/edit', [BlogController::class, 'update'])->name('blog.update');
