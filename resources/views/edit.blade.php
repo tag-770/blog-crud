@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>編集</h1>
-    <form action="{{ route('blog.create') }}" method="post">
+    <form action="{{ route('blog.edit', ['id'=>$blog->id]) }}" method="post">
         {{ csrf_field() }}
         タイトル:<br>
         <input name="title" value="{{ $blog->title }}">
