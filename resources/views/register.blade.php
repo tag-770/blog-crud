@@ -10,16 +10,16 @@
         <form action="" method="post">
             {{ csrf_field() }}
             ユーザー名:<br>
-            <input name="username">
+            <input type="text" name="username">
             <br>
             メールアドレス:<br>
-            <input name="email">
+            <input type="email" name="email">
             <br>
             パスワード:<br>
-            <input name="password">
+            <input type="password" name="password">
             <br>
             パスワード（確認用）:<br>
-            <input name="password">
+            <input type="password" name="password">
             <br>
             <button class="btn btn-success"> 送信 </button>
         </form>
