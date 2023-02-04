@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,4 @@ Route::get('/blogs/{id}', [BlogController::class, 'show'])->name('blog.show');
 Route::post('/blogs/{id}/delete', [BlogController::class, 'destroy'])->name('blog.destroy');
 Route::get('/blogs/{id}/edit', [BlogController::class, 'edit'])->name('blog.edit');
 Route::post('/blogs/{id}/edit', [BlogController::class, 'update'])->name('blog.update');
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
