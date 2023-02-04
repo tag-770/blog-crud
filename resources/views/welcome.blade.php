@@ -8,6 +8,6 @@
 </head>
 <body>
     <h1>ようこそ、ブログサイトへ</h1>
-    
+    <button class="btn btn-success"> 会員登録する </button>
 </body>
 </html>
