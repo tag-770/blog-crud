@@ -3,17 +3,23 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>新規作成</title>
+        <title>会員登録</title>
     </head>
     <body>
-        <h1>ブログ新規作成</h1>
-        <form action="{{ route('blog.create') }}" method="post">
+        <h1>会員登録</h1>
+        <form action="" method="post">
             {{ csrf_field() }}
-            タイトル:<br>
-            <input name="title">
+            ユーザー名:<br>
+            <input name="username">
             <br>
-            本文:<br>
-            <textarea name="body" rows="4" cols="40"></textarea>
+            メールアドレス:<br>
+            <input name="email">
+            <br>
+            パスワード:<br>
+            <input name="password">
+            <br>
+            パスワード（確認用）:<br>
+            <input name="password">
             <br>
             <button class="btn btn-success"> 送信 </button>
         </form>
