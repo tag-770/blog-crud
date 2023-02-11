@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1>会員登録</h1>
-        <form action="" method="post">
+        <form action="{{ route('register.create') }}" method="post">
             {{ csrf_field() }}
             ユーザー名:<br>
             <input type="text" name="username">
