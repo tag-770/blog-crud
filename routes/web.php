@@ -28,4 +28,4 @@ Route::get('/blogs/{id}/edit', [BlogController::class, 'edit'])->name('blog.edit
 Route::post('/blogs/{id}/edit', [BlogController::class, 'update'])->name('blog.update');
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.create');
-Route::get('/login', [LoginController::class, 'index'])->name('logim');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
