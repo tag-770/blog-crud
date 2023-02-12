@@ -7,10 +7,10 @@
     </head>
     <body>
         <h1>会員登録</h1>
-        <form action="" method="post">
+        <form action="{{ route('register.create') }}" method="post">
             {{ csrf_field() }}
             ユーザー名:<br>
-            <input type="text" name="username">
+            <input type="text" name="name">
             <br>
             メールアドレス:<br>
             <input type="email" name="email">
@@ -19,9 +19,9 @@
             <input type="password" name="password">
             <br>
             パスワード（確認用）:<br>
-            <input type="password" name="password">
+            <input type="password" name="password_confirmation">
             <br>
-            <button class="btn btn-success"> 送信 </button>
+            <button type="submit"> 送信 </button>
         </form>
     </body>
 </html>        
