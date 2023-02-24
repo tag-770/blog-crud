@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -28,6 +29,7 @@ class BlogController extends Controller
         Blog::create([
             'title' => $request->title,
             'body' => $request->body,
+            'user_id' => Auth::id()
         ]);
 
         return redirect()->route('blog.create');
