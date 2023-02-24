@@ -37,7 +37,7 @@ class RegisterController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->route('top');
+            return redirect()->route('home');
         }
     }
 }
