@@ -77,15 +77,21 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $login_user_id = Auth::id();
+        $blog_user_id = Blog::find($id)->user_id;
+        if ($login_user_id !== $blog_user_id) {
+            abort(403);
+        }
+        
         $request->validate([
             'title' => ['required'],
             'body' => ['required', 'min:10'],
         ]);
-
         Blog::find($id)->update([
             'title' => $request->title,
             'body' => $request->body
         ]);
         return redirect()->route('top');
+
     }
 }
