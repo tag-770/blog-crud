@@ -14,6 +14,10 @@
           @csrf
           <button type="submit" class="btn btn-danger">削除する</button>
         </form>
+        <form action="{{ route('blog.edit', ['id'=>$blog->id]) }}" method="GET">
+          @csrf
+          <button type="submit" class="btn btn-danger">編集する</button>
+        </form>
         </div>
     </body>
 </html>        
