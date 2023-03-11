@@ -19,7 +19,7 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('top');
+})->name('top')->middleware('guest');
 Route::get('/blog', [BlogController::class, 'create'])->name('blog.create');
 Route::post('/blog', [BlogController::class, 'store']);
 Route::get('/blogs', [BlogController::class, 'index'])->name('blog.index');
@@ -27,9 +27,14 @@ Route::get('/blogs/{id}', [BlogController::class, 'show'])->name('blog.show');
 Route::post('/blogs/{id}/delete', [BlogController::class, 'destroy'])->name('blog.destroy');
 Route::get('/blogs/{id}/edit', [BlogController::class, 'edit'])->name('blog.edit');
 Route::post('/blogs/{id}/edit', [BlogController::class, 'update'])->name('blog.update');
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'register'])->name('register.create');
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
+Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
+Route::post('/register', [RegisterController::class, 'register'])->name('register.create')->middleware('guest');
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'login'])->middleware('guest');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+// Route::group(['middleware' => ['loginUserCheck']], function() {
+//     Route::get('/', function () {
+//         return view('welcome');
+//     })->name('top');
+//   });
