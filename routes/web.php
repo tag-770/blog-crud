@@ -26,12 +26,14 @@ Route::group(['middleware' => 'guest'], function() {
     Route::post('/login', [LoginController::class, 'login']);
 });
 
-Route::get('/blog', [BlogController::class, 'create'])->name('blog.create');
-Route::post('/blog', [BlogController::class, 'store']);
-Route::get('/blogs', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blogs/{id}', [BlogController::class, 'show'])->name('blog.show');
-Route::post('/blogs/{id}/delete', [BlogController::class, 'destroy'])->name('blog.destroy');
-Route::get('/blogs/{id}/edit', [BlogController::class, 'edit'])->name('blog.edit');
-Route::post('/blogs/{id}/edit', [BlogController::class, 'update'])->name('blog.update');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/blog', [BlogController::class, 'create'])->name('blog.create');
+    Route::post('/blog', [BlogController::class, 'store']);
+    Route::get('/blogs', [BlogController::class, 'index'])->name('blog.index');
+    Route::get('/blogs/{id}', [BlogController::class, 'show'])->name('blog.show');
+    Route::post('/blogs/{id}/delete', [BlogController::class, 'destroy'])->name('blog.destroy');
+    Route::get('/blogs/{id}/edit', [BlogController::class, 'edit'])->name('blog.edit');
+    Route::post('/blogs/{id}/edit', [BlogController::class, 'update'])->name('blog.update');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+});
