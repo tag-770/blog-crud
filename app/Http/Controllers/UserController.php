@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     /**
-     * ブログの編集画面を表示する
+     * ユーザー名の編集画面を表示する
      */
     public function editUserName()
     {
