@@ -19,7 +19,7 @@ class UserController extends Controller
     }
 
     /**
-     * ブログの更新をする
+     * ユーザー名の編集をする
      */
     public function updateUserName(Request $request)
     {
