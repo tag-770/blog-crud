@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>ユーザー名の変更</h1>
-    <form action="" method="post">
+    <form action="{{ route('username.edit', ['name'=>$name]) }}" method="post">
         {{ csrf_field() }}
         ユーザー名:
         <div>

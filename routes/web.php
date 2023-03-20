@@ -38,4 +38,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/mypage/username', [UserController::class, 'editUserName'])->name('username.edit');
+    Route::post('//mypage/username', [UserController::class, 'updateUserName'])->name('username.update');
 });
