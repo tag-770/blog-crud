@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -11,13 +13,8 @@ class UserController extends Controller
      */
     public function editUserName()
     {
-        // $login_user_id = Auth::id();
-        // $blog_user_id = Blog::find($id)->user_id;
-        // if ($login_user_id !== $blog_user_id) {
-        //     abort(403);
-        // }
-        // $blog = Blog::find($id);
-        // return view("edit")->with('blog', $blog);
-        return view("username");
+        $id = Auth::id();
+        $user = User::find($id);
+        return view("username")->with('user', $user);
     }
 }
