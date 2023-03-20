@@ -13,8 +13,8 @@ class UserController extends Controller
      */
     public function editUserName()
     {
-        $id = Auth::id();
-        $user = User::find($id);
-        return view("username")->with('user', $user);
+        $user = Auth::user();
+        // $user = User::find($id);
+        return view("username")->with('name', $user->name);
     }
 }

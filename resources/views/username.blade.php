@@ -11,7 +11,7 @@
         {{ csrf_field() }}
         ユーザー名:
         <div>
-            <input type="text" name="name" value="{{ $user->name }}">
+            <input type="text" name="name" value="{{ $name }}">
         </div>
         <button type="submit"> 変更 </button>
     </form>
