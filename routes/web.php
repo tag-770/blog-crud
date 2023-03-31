@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/blogs/{id}/edit', [BlogController::class, 'update'])->name('blog.update');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/mypage/username', [UserController::class, 'editUserName'])->name('username.edit');
+    Route::post('/mypage/username', [UserController::class, 'updateUserName'])->name('username.update');
 });
