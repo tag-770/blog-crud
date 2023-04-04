@@ -34,4 +34,14 @@ class UserController extends Controller
         return redirect()->route('top');
 
     }
+
+    /**
+     * パスワードの編集画面を表示する
+     */
+    public function editPassword()
+    {
+        //$user = Auth::user();
+        // $user = User::find($id);
+        return view("password");
+    }
 }
