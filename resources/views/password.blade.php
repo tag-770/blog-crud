@@ -9,11 +9,15 @@
     <h1>パスワード変更</h1>
     <form action="" method="post">
         {{ csrf_field() }}
-        パスワード:
+        現在のパスワード:
         <div>
             <input type="password" name="password" value="">
         </div>
-        パスワード（確認用）:
+        新パスワード:
+        <div>
+            <input type="password" name="password" value="">
+        </div>
+        新パスワード（確認用）:
         <div>
             <input type="password" name="password_confirmation">
         </div>
