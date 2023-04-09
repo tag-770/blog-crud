@@ -40,7 +40,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::whereNull('deleted_at')->get();
         return view("index")->with('blogs',$blogs);
     }
 
@@ -65,7 +65,8 @@ class BlogController extends Controller
         }
 
         $blog = Blog::find($id);
-        $blog->delete();
+        $blog->deleted_at = date('Y-m-d H:i:s');
+        $blog->save();
         return redirect()->route('blog.create');
     }
 
