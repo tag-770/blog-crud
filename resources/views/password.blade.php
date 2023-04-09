@@ -11,15 +11,15 @@
         {{ csrf_field() }}
         現在のパスワード:
         <div>
-            <input type="password" name="password" value="">
+            <input type="password" name="current_password" value="">
         </div>
         新パスワード:
         <div>
-            <input type="password" name="password" value="">
+            <input type="password" name="new_password" value="">
         </div>
         新パスワード（確認用）:
         <div>
-            <input type="password" name="password_confirmation">
+            <input type="password" name="new_password_confirmation">
         </div>
         <button type="submit"> 変更 </button>
     </form>
