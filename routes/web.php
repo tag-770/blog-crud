@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +42,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/mypage/username', [UserController::class, 'updateUserName'])->name('username.update');
     Route::get('/mypage/password', [UserController::class, 'editPassword'])->name('password.edit');
     Route::post('/mypage/password', [UserController::class, 'updatePassword'])->name('password.edit');
+    Route::get('/category', [CategoryController::class, 'createCategory'])->name('category.create');
+    Route::post('/category', [CategoryController::class, 'storeCategory'])->name('category.store');
 });
