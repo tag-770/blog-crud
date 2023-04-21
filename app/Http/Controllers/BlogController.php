@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
@@ -13,7 +14,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view("create");
+        $categories = Category::get();
+        return view("create")->with('categories',$categories);
     }
     
     /**
