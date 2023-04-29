@@ -16,7 +16,8 @@
             <textarea name="body" rows="4" cols="40"></textarea>
             <br>
             カテゴリー:<br>
-            <select name="example">
+            <select name="category_id">
+                <option disabled selected>選択してください</option>
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach

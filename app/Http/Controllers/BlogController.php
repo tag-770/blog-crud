@@ -28,13 +28,14 @@ class BlogController extends Controller
             'body' => ['required', 'min:10'],
         ]);
 
-        Blog::create([
+        $blog = Blog::create([
             'title' => $request->title,
             'body' => $request->body,
-            'user_id' => Auth::id()
+            'user_id' => Auth::id(),
+            'category_id' => $request->category_id
         ]);
 
-        return redirect()->route('blog.create');
+        return redirect()->route('blog.show', $blog->id);
     }
 
     /**
