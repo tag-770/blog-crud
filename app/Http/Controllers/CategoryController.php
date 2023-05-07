@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Blog;
 
 class CategoryController extends Controller
 {
@@ -31,5 +32,15 @@ class CategoryController extends Controller
         ]);
 
         return redirect()->route('home');
+    }
+
+    /**
+     * カテゴリー名の一覧画面を表示する
+     */
+    public function showCategory($slug)
+    {
+        $category = Category::where('slug', $slug)->first();
+        $blogs = Blog::where('category_id', $category->id)->get();
+        return view("categorylist")->with('blogs',$blogs);
     }
 }
