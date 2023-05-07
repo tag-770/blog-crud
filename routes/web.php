@@ -45,4 +45,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/category', [CategoryController::class, 'createCategory'])->name('category.create');
     Route::post('/category', [CategoryController::class, 'storeCategory'])->name('category.store');
     Route::get('/categories/{slug}', [CategoryController::class, 'showCategory'])->name('category.show');
+    Route::get('/mypage/blogs', [BlogController::class, 'showMyBlogs'])->name('myblogs.show');
 });
