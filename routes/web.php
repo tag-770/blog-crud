@@ -44,4 +44,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/mypage/password', [UserController::class, 'updatePassword'])->name('password.edit');
     Route::get('/category', [CategoryController::class, 'createCategory'])->name('category.create');
     Route::post('/category', [CategoryController::class, 'storeCategory'])->name('category.store');
+    Route::get('/categories/{slug}', [CategoryController::class, 'showCategory'])->name('category.show');
 });
