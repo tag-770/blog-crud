@@ -115,8 +115,8 @@ class BlogController extends Controller
      */
     public function showMyBlogs()
     {
-        $user = Auth::id();
-        $myblogs = Blog::where('user_id', $user)->get();
+        $user_id = Auth::id();
+        $myblogs = Blog::where('user_id', $user_id)->get();
         return view("mybloglist")->with('myblogs',$myblogs);
     }
 }
