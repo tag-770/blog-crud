@@ -109,4 +109,14 @@ class BlogController extends Controller
         return redirect()->route('top');
 
     }
+
+    /**
+     * マイページに自身のブログ一覧を表示する
+     */
+    public function showMyBlogs()
+    {
+        $user_id = Auth::id();
+        $myblogs = Blog::where('user_id', $user_id)->get();
+        return view("mybloglist")->with('myblogs',$myblogs);
+    }
 }
