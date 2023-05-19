@@ -20,4 +20,12 @@ class Blog extends Model
         'user_id',
         'category_id'
     ];
+
+    /**
+     *自分が所有しているブログを取得
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

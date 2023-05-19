@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class BlogController extends Controller
 {
@@ -115,8 +116,9 @@ class BlogController extends Controller
      */
     public function showMyBlogs()
     {
-        $user_id = Auth::id();
-        $myblogs = Blog::where('user_id', $user_id)->get();
+        // $user_id = Auth::id();
+        // $myblogs = Blog::where('user_id', $user_id)->get();
+        $myblogs = User::find(Auth::id())->blogs;
         return view("mybloglist")->with('myblogs',$myblogs);
     }
 }
