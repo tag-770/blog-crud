@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,4 +47,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/category', [CategoryController::class, 'storeCategory'])->name('category.store');
     Route::get('/categories/{slug}', [CategoryController::class, 'showCategory'])->name('category.show');
     Route::get('/mypage/blogs', [BlogController::class, 'showMyBlogs'])->name('myblogs.show');
+    Route::get('/blogs/{id}/comment', [CommentController::class, 'createComment'])->name('comment.create');
 });
