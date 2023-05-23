@@ -39,8 +39,9 @@ class CategoryController extends Controller
      */
     public function showCategory($slug)
     {
-        $category = Category::where('slug', $slug)->first();
-        $blogs = Blog::where('category_id', $category->id)->get();
+        // $category = Category::where('slug', $slug)->first();
+        // $blogs = Blog::where('category_id', $category->id)->get();
+        $blogs = Category::where('slug', $slug)->first()->blogs;
         return view("categorylist")->with('blogs',$blogs);
     }
 }
