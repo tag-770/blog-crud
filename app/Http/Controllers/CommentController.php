@@ -13,6 +13,6 @@ class CommentController extends Controller
     public function createComment($id)
     {
         $blog = Blog::find($id);
-        return view("comment");
+        return view("comment")->with('blog',$blog);
     }
 }

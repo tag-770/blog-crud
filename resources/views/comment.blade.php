@@ -9,7 +9,7 @@
         <h1>コメント作成</h1>
         <form action="{{ route('blog.create') }}" method="post">
             {{ csrf_field() }}
-            コメント本文:<br>
+            {{$blog->title}}にコメントする:<br>
             <textarea name="body" rows="4" cols="40"></textarea>
             <br>
             <button class="btn btn-success"> 送信 </button>
