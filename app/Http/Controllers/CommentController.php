@@ -29,7 +29,7 @@ class CommentController extends Controller
             'body' => ['required'],
         ]);
 
-        $blog = Comment::create([
+        $comment = Comment::create([
             'body' => $request->body,
             'user_id' => Auth::id(),
             'blog_id' => $blog->id
