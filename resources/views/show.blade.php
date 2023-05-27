@@ -18,6 +18,10 @@
           @csrf
           <button type="submit" class="btn btn-danger">編集する</button>
         </form>
+        <form action="{{ route('comment.create', ['id'=>$blog->id]) }}" method="GET">
+          @csrf
+          <button type="submit" class="btn btn-danger">コメントする</button>
+        </form>
         </div>
     </body>
 </html>        
