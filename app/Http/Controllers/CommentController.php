@@ -32,7 +32,7 @@ class CommentController extends Controller
         $blog = Comment::create([
             'body' => $request->body,
             'user_id' => Auth::id(),
-            'blog_id' => $blog
+            'blog_id' => $blog->id
         ]);
         return view("show")->with('blog',$blog);
     }
