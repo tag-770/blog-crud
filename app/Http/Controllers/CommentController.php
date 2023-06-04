@@ -34,6 +34,7 @@ class CommentController extends Controller
             'user_id' => Auth::id(),
             'blog_id' => $blog->id
         ]);
-        return view("show")->with('blog',$blog);
+        //return view("show")->with('blog',$blog);
+        return redirect()->route('blog.show', $id);
     }
 }
