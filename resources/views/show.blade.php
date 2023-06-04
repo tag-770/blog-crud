@@ -23,11 +23,5 @@
           <button type="submit" class="btn btn-danger">コメントする</button>
         </form>
         </div>
-        <h1>コメント一覧</h1>
-        @foreach($comments as $comment)
-            <div>
-                <p>{{$comment->body}} - {{$comment->created_at}}</p>
-            </div>
-        @endforeach
     </body>
 </html>        
