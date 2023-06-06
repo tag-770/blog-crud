@@ -23,7 +23,7 @@
           <button type="submit" class="btn btn-danger">コメントする</button>
         </form>
         </div>
-        <h1>Myブログ一覧</h1>
+        <h1>コメント一覧</h1>
         @foreach($comments as $comment)
             <div>
                 <p>{{$comment->body}} - {{$comment->created_at}}</p>
