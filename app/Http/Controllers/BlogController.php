@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Comment;
 
 class BlogController extends Controller
 {
@@ -54,7 +55,8 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog = Blog::find($id);
-        return view("show")->with('blog', $blog);
+        $comments = Comment::where('blog_id', $id)->get();
+        return view('show',compact('blog','comments'));
     }
 
     /**
