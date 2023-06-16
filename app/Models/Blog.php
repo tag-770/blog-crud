@@ -33,4 +33,12 @@ class Blog extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    /**
+     *自分のコメントを取得
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

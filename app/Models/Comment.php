@@ -19,4 +19,20 @@ class Comment extends Model
         'user_id',
         'blog_id'
     ];
+
+    /**
+     *自分が所有しているユーザーを取得
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     *コメントを所有しているブログを取得
+     */
+    public function blog()
+    {
+        return $this->belongsTo(Blog::class);
+    }
 }
