@@ -10,5 +10,11 @@
     <h1>Blog CRUD</h1>
     <a href="{{ route('blog.create') }}" class="btn"> ブログを登録する </a>
     <a href="{{ route('logout') }}" class="btn"> ログアウトする </a>
+    <h1>全投稿一覧</h1>
+        @foreach($blogs as $blog)
+            <div>
+                <p>{{$blog->title}} - {{$blog->body}}</p>
+            </div>
+        @endforeach
 </body>
 </html>
