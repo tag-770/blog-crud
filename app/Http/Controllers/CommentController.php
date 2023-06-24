@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class CommentController extends Controller
 {
@@ -37,4 +38,16 @@ class CommentController extends Controller
         //return view("show")->with('blog',$blog);
         return redirect()->route('blog.show', $id);
     }
+
+    /**
+     * コメントの一覧を表示する
+     */
+    public function showComment()
+    {
+        // $user_id = Auth::id();
+        // $mycomments = Comment::where('user_id', $user_id)->get();
+        $comments = User::where('id', Auth::id())->first()->comments;
+        return view('commentlist')->with('comments',$comments);
+    }
+
 }

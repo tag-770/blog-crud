@@ -49,4 +49,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Blog::class);
     }
+
+    /**
+     *自分のコメントを取得
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
