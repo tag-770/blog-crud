@@ -37,7 +37,7 @@ class BlogController extends Controller
             'category_id' => $request->category_id
         ]);
 
-        return redirect()->route('blog.show', $blog->id);
+        return redirect()->route('home');
     }
 
     /**

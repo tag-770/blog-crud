@@ -9,7 +9,8 @@
         <h1>ブログ一覧</h1>
         @foreach($blogs as $blog)
             <div>
-                <p>{{$blog->title}} - {{$blog->body}}</p>
+                <a href="{{ route('blog.show', ['id'=>$blog->id]) }}">{{$blog->title}}</a>
+                <p>{{$blog->body}}</p>
             </div>
         @endforeach
     </body>

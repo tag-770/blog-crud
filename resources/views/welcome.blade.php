@@ -9,5 +9,6 @@
 <body>
     <h1>ようこそ、ブログサイトへ</h1>
     <a href="{{ route('register') }}" class="btn"> 会員登録する </a>
+    <a href="{{ route('login') }}" class="btn"> ログインする </a>
 </body>
 </html>
