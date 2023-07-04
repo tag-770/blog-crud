@@ -20,7 +20,7 @@
             {{ csrf_field() }}
             メールアドレス:
             <div>
-                <input type="email" name="email">
+                <input type="email" name="email" value="{{ old('email') }}">
             </div>
             パスワード:
             <div>

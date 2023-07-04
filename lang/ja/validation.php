@@ -174,7 +174,10 @@ return [
     'attributes' => [
         'name' => 'ユーザー名',
         'password' => 'パスワード',
-        'email' => 'メールアドレス'
+        'email' => 'メールアドレス',
+        'title' => 'タイトル',
+        'body' => '本文',
+        'category_id' => 'カテゴリー'
     ],
 
 ];

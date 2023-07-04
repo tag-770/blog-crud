@@ -19,10 +19,10 @@
         <form action="{{ route('register.create') }}" method="post">
             {{ csrf_field() }}
             ユーザー名:<br>
-            <input type="text" name="name">
+            <input type="text" name="name" value="{{ old('name') }}">
             <br>
             メールアドレス:<br>
-            <input type="email" name="email">
+            <input type="email" name="email" value="{{ old('email') }}">
             <br>
             パスワード:<br>
             <input type="password" name="password">

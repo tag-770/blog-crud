@@ -28,6 +28,7 @@ class BlogController extends Controller
         $request->validate([
             'title' => ['required'],
             'body' => ['required', 'min:10'],
+            'category_id' => ['required'],
         ]);
 
         $blog = Blog::create([
