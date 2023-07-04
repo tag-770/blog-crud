@@ -58,7 +58,8 @@ class BlogController extends Controller
     {
         $blog = Blog::find($id);
         $comments = Comment::where('blog_id', $id)->get();
-        return view('show',compact('blog','comments'));
+        $comment_users = User::all();
+        return view('show',compact('blog','comments','comment_users'));
     }
 
     /**

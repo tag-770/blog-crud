@@ -35,7 +35,13 @@
         <h1>コメント一覧</h1>
         @foreach($comments as $comment)
             <div>
-                <p>{{$comment->body}} - {{$comment->created_at}}</p>
+                <a>{{$comment->body}} - {{$comment->created_at}}</a>
+                @foreach($comment_users as $comment_user)
+                @if($comment->user_id == $comment_user->id)
+                    <a>{{$comment_user->name}}</a>
+                    @continue
+                @endif
+                @endforeach
             </div>
         @endforeach
     </body>
