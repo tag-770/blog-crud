@@ -8,9 +8,16 @@
 </head>
 <body>
     {{-- フラッシュメッセージ --}}
-        @if (session('successMessage'))
+        {{-- ユーザー名変更 --}}
+        @if (session('successMessageUserName'))
         <div class="alert alert-success text-center">
-            {{ session('successMessage') }}
+            {{ session('successMessageUserName') }}
+        </div> 
+        @endif
+        {{-- パスワード変更 --}}
+        @if (session('successMessagePassword'))
+        <div class="alert alert-success text-center">
+            {{ session('successMessagePassword') }}
         </div> 
         @endif
     {{-- フラッシュメッセージ終わり --}}

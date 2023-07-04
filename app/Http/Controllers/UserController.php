@@ -33,7 +33,7 @@ class UserController extends Controller
             'name' => $request->name,
         ]);
        // session()->flash('flash_message', 'ユーザー名を変更しました');
-        return redirect()->route('home')->with('successMessage', '登録に成功しました。');
+        return redirect()->route('home')->with('successMessageUserName', 'ユーザー名を変更しました。');
 
     }
 
@@ -77,9 +77,9 @@ class UserController extends Controller
         //新規パスワードの確認
         //$this->validator($request->all())->validate();
 
-        $user->password = Hash::make($request->password);
+        $user->password = Hash::make($request->new_password);
         $user->save();
 
-        return redirect()->route('top');
+        return redirect()->route('home')->with('successMessagePassword', 'パスワードを変更しました。');
     }
 }
