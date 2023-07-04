@@ -47,7 +47,8 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::whereNull('deleted_at')->get();
-        return view("index")->with('blogs',$blogs);
+        $blog_users = User::all();
+        return view('index',compact('blogs','blog_users'));
     }
 
     /**
