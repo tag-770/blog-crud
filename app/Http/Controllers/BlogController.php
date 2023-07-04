@@ -76,7 +76,7 @@ class BlogController extends Controller
         $blog = Blog::find($id);
         $blog->deleted_at = date('Y-m-d H:i:s');
         $blog->save();
-        return redirect()->route('blog.create');
+        return redirect()->route('myblogs.show');
     }
 
     /**
