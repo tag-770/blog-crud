@@ -22,6 +22,10 @@
           @csrf
           <button type="submit" class="btn btn-danger">コメントする</button>
         </form>
+        <form action="{{ route('blog.index')}}" method="GET">
+          @csrf
+          <button type="submit" class="btn btn-danger">ブログ一覧へ</button>
+        </form>
         </div>
         <h1>コメント一覧</h1>
         @foreach($comments as $comment)
