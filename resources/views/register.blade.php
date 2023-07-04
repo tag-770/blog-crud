@@ -6,6 +6,15 @@
         <title>会員登録</title>
     </head>
     <body>
+        <div>  
+            @if ($errors->any())  
+                <ul>  
+                    @foreach ($errors->all() as $error)  
+                        <li>{{ $error }}</li>  
+                    @endforeach  
+                </ul>  
+            @endif  
+        </div>
         <h1>会員登録</h1>
         <form action="{{ route('register.create') }}" method="post">
             {{ csrf_field() }}
