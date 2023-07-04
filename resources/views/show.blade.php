@@ -10,6 +10,9 @@
         <div>
             <p>{{$blog->title}} - {{$blog->body}} - {{$blog->created_at}}</p>
         </div>
+        @auth
+        @if (Auth::id() === $blog->user_id)          
+          @csrf
         <form action="{{ route('blog.destroy', ['id'=>$blog->id]) }}" method="POST">
           @csrf
           <button type="submit" class="btn btn-danger">削除する</button>
@@ -18,6 +21,8 @@
           @csrf
           <button type="submit" class="btn btn-danger">編集する</button>
         </form>
+        @endif
+        @endauth
         <form action="{{ route('comment.create', ['id'=>$blog->id]) }}" method="GET">
           @csrf
           <button type="submit" class="btn btn-danger">コメントする</button>
