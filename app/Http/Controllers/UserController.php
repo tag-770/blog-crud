@@ -32,7 +32,8 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
         ]);
-        return redirect()->route('top');
+       // session()->flash('flash_message', 'ユーザー名を変更しました');
+        return redirect()->route('home')->with('successMessage', '登録に成功しました。');
 
     }
 

@@ -7,6 +7,13 @@
     <title>Home</title>
 </head>
 <body>
+    {{-- フラッシュメッセージ --}}
+        @if (session('successMessage'))
+        <div class="alert alert-success text-center">
+            {{ session('successMessage') }}
+        </div> 
+        @endif
+    {{-- フラッシュメッセージ終わり --}}
     <h1>Blog CRUD</h1>
     <a href="{{ route('blog.create') }}" class="btn"> ブログを登録する </a>
     <a href="{{ route('logout') }}" class="btn"> ログアウトする </a>
