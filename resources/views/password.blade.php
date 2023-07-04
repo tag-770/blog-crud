@@ -6,6 +6,15 @@
     <title>パスワード変更</title>
 </head>
 <body>
+    <div>  
+        @if ($errors->any())  
+            <ul>  
+                @foreach ($errors->all() as $error)  
+                    <li>{{ $error }}</li>  
+                @endforeach  
+            </ul>  
+        @endif  
+    </div>
     <h1>パスワード変更</h1>
     <form action="" method="post">
         {{ csrf_field() }}

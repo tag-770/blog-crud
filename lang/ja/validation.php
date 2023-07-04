@@ -177,7 +177,8 @@ return [
         'email' => 'メールアドレス',
         'title' => 'タイトル',
         'body' => '本文',
-        'category_id' => 'カテゴリー'
+        'category_id' => 'カテゴリー',
+        'new_password' => '新パスワード'
     ],
 
 ];
