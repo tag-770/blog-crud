@@ -60,16 +60,19 @@ class UserController extends Controller
      */
     public function updatePassword(Request $request)
     {
+        // 2 新パスワードのバリデーションをする
+        $credentials = $request->validate([
+            'current_password' => ['required'],
+            'new_password' => ['required', 'min:8', 'confirmed'],
+        ]);
+
         // 1 登録されているパスワードと現在のパスワードが一致していることを確認する
         $user = Auth::user();
         if(!password_verify($request->current_password,$user->password))
         {
             return redirect()->route('password.edit');
         }
-        // 2 新パスワードのバリデーションをする
-        $credentials = $request->validate([
-            'new_password' => ['required', 'min:8', 'confirmed'],
-        ]);
+        
 
         // 3 パスワードを更新する
         // 4 ホームにリダイレクトする

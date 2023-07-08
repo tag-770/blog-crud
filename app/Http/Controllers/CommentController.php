@@ -47,8 +47,7 @@ class CommentController extends Controller
         // $user_id = Auth::id();
         // $mycomments = Comment::where('user_id', $user_id)->get();
         $comments = User::where('id', Auth::id())->first()->comments;
-        $blog_comments = User::all();
-        return view('commentlist',compact('comments','blog_comments'));
+        return view('commentlist')->with('comments',$comments);
     }
 
 }

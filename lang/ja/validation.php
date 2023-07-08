@@ -178,7 +178,8 @@ return [
         'title' => 'タイトル',
         'body' => '本文',
         'category_id' => 'カテゴリー',
-        'new_password' => '新パスワード'
+        'new_password' => '新パスワード',
+        'current_password' => '現在のパスワード'
     ],
 
 ];
