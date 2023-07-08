@@ -13,6 +13,7 @@ class HomeController extends Controller
     public function index()
     {
         $blogs = Blog::whereNull('deleted_at')->get();
-        return view("home")->with('blogs',$blogs);
+        $blogs_latest = $blogs->sortByDesc('created_at');
+        return view("home")->with('blogs_latest',$blogs_latest);
     }
 }

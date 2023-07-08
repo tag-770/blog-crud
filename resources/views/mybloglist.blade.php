@@ -7,10 +7,14 @@
     </head>
     <body>
         <h1>Myブログ一覧</h1>
-        @foreach($myblogs as $myblog)
-            <div>
-                <p>{{$myblog->title}}</p>
-            </div>
-        @endforeach
+        @if (!$myblogs->isEmpty())
+            @foreach($myblogs as $myblog)
+                <div>
+                    <p>{{$myblog->title}}</p>
+                </div>
+            @endforeach
+        @else
+             ブログはありません
+        @endif
     </body>
 </html>        

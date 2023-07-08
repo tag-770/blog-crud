@@ -7,13 +7,28 @@
     <title>Home</title>
 </head>
 <body>
+    {{-- フラッシュメッセージ --}}
+        {{-- ユーザー名変更 --}}
+        @if (session('successMessageUserName'))
+        <div class="alert alert-success text-center">
+            {{ session('successMessageUserName') }}
+        </div> 
+        @endif
+        {{-- パスワード変更 --}}
+        @if (session('successMessagePassword'))
+        <div class="alert alert-success text-center">
+            {{ session('successMessagePassword') }}
+        </div> 
+        @endif
+    {{-- フラッシュメッセージ終わり --}}
     <h1>Blog CRUD</h1>
     <a href="{{ route('blog.create') }}" class="btn"> ブログを登録する </a>
+    <a href="{{ route('blog.index') }}" class="btn"> ブログ一覧 </a>
     <a href="{{ route('logout') }}" class="btn"> ログアウトする </a>
     <h1>全投稿一覧</h1>
-        @foreach($blogs as $blog)
+        @foreach($blogs_latest as $blog_latest)
             <div>
-                <p>{{$blog->title}} - {{$blog->body}}</p>
+                <p>{{$blog_latest->title}} - {{$blog_latest->body}}</p>
             </div>
         @endforeach
 </body>

@@ -6,12 +6,21 @@
         <title>ログイン</title>
     </head>
     <body>
+        <div>  
+            @if ($errors->any())  
+                <ul>  
+                    @foreach ($errors->all() as $error)  
+                        <li>{{ $error }}</li>  
+                    @endforeach  
+                </ul>  
+            @endif  
+        </div>
         <h1>ログイン</h1>
         <form action="{{ route('login') }}" method="post">
             {{ csrf_field() }}
             メールアドレス:
             <div>
-                <input type="email" name="email">
+                <input type="email" name="email" value="{{ old('email') }}">
             </div>
             パスワード:
             <div>

@@ -28,6 +28,7 @@ class BlogController extends Controller
         $request->validate([
             'title' => ['required'],
             'body' => ['required', 'min:10'],
+            'category_id' => ['required'],
         ]);
 
         $blog = Blog::create([
@@ -46,7 +47,8 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::whereNull('deleted_at')->get();
-        return view("index")->with('blogs',$blogs);
+        $blog_users = User::all();
+        return view('index',compact('blogs','blog_users'));
     }
 
     /**
@@ -56,7 +58,8 @@ class BlogController extends Controller
     {
         $blog = Blog::find($id);
         $comments = Comment::where('blog_id', $id)->get();
-        return view('show',compact('blog','comments'));
+        $comment_users = User::all();
+        return view('show',compact('blog','comments','comment_users'));
     }
 
     /**
@@ -73,7 +76,7 @@ class BlogController extends Controller
         $blog = Blog::find($id);
         $blog->deleted_at = date('Y-m-d H:i:s');
         $blog->save();
-        return redirect()->route('blog.create');
+        return redirect()->route('myblogs.show');
     }
 
     /**

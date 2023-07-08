@@ -10,6 +10,9 @@
         <div>
             <p>{{$blog->title}} - {{$blog->body}} - {{$blog->created_at}}</p>
         </div>
+        @auth
+        @if (Auth::id() === $blog->user_id)          
+          @csrf
         <form action="{{ route('blog.destroy', ['id'=>$blog->id]) }}" method="POST">
           @csrf
           <button type="submit" class="btn btn-danger">削除する</button>
@@ -18,15 +21,27 @@
           @csrf
           <button type="submit" class="btn btn-danger">編集する</button>
         </form>
+        @endif
+        @endauth
         <form action="{{ route('comment.create', ['id'=>$blog->id]) }}" method="GET">
           @csrf
           <button type="submit" class="btn btn-danger">コメントする</button>
+        </form>
+        <form action="{{ route('blog.index')}}" method="GET">
+          @csrf
+          <button type="submit" class="btn btn-danger">ブログ一覧へ</button>
         </form>
         </div>
         <h1>コメント一覧</h1>
         @foreach($comments as $comment)
             <div>
-                <p>{{$comment->body}} - {{$comment->created_at}}</p>
+                <a>{{$comment->body}} - {{$comment->created_at}}</a>
+                @foreach($comment_users as $comment_user)
+                @if($comment->user_id == $comment_user->id)
+                    <a>{{$comment_user->name}}</a>
+                    @continue
+                @endif
+                @endforeach
             </div>
         @endforeach
     </body>

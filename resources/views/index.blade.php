@@ -10,7 +10,13 @@
         @foreach($blogs as $blog)
             <div>
                 <a href="{{ route('blog.show', ['id'=>$blog->id]) }}">{{$blog->title}}</a>
-                <p>{{$blog->body}}</p>
+                <a>{{ Str::limit($blog->body, 15)}}</a>
+                @foreach($blog_users as $blog_user)
+                @if($blog->user_id == $blog_user->id)
+                    <a>{{$blog_user->name}}</a>
+                    @continue
+                @endif
+                @endforeach
             </div>
         @endforeach
     </body>

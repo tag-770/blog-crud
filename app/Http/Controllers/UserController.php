@@ -32,7 +32,8 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
         ]);
-        return redirect()->route('top');
+       // session()->flash('flash_message', 'ユーザー名を変更しました');
+        return redirect()->route('home')->with('successMessageUserName', 'ユーザー名を変更しました。');
 
     }
 
@@ -59,16 +60,19 @@ class UserController extends Controller
      */
     public function updatePassword(Request $request)
     {
+        // 2 新パスワードのバリデーションをする
+        $credentials = $request->validate([
+            'current_password' => ['required'],
+            'new_password' => ['required', 'min:8', 'confirmed'],
+        ]);
+
         // 1 登録されているパスワードと現在のパスワードが一致していることを確認する
         $user = Auth::user();
         if(!password_verify($request->current_password,$user->password))
         {
             return redirect()->route('password.edit');
         }
-        // 2 新パスワードのバリデーションをする
-        $credentials = $request->validate([
-            'new_password' => ['required', 'min:8', 'confirmed'],
-        ]);
+        
 
         // 3 パスワードを更新する
         // 4 ホームにリダイレクトする
@@ -76,9 +80,9 @@ class UserController extends Controller
         //新規パスワードの確認
         //$this->validator($request->all())->validate();
 
-        $user->password = Hash::make($request->password);
+        $user->password = Hash::make($request->new_password);
         $user->save();
 
-        return redirect()->route('top');
+        return redirect()->route('home')->with('successMessagePassword', 'パスワードを変更しました。');
     }
 }
